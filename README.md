@@ -2,7 +2,7 @@
 
 A calm, minimal reading tracking for keeping every book I read in one place. Built with vanilla HTML, CSS and JavaScript for the **Building Responsive UI** summative (Frontend Web Development, ALU).
 
-**Live site (GitHub Pages):** https://fiinsikabore.github.io/Summative-Assignment---Building-Responsive-UI/
+**Live site (GitHub Pages):** https://fiinsikabore.github.io/Summative-FrontEnd/
 
 **Demo video (unlisted):** 
 ADD-LINK-HERE
