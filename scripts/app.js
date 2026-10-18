@@ -180,6 +180,18 @@ async function loadSample() {
     $('data-status').textContent = 'Open the app with a local server to load the sample.';
     }
 }
+
+$('export').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(books, null, 2)], { type: 'application/json '});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `book-vault-${today()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+    $('data-status').textContent = `Exported ${books.length} books.`;
+});
+
 $('seed').addEventListener('click', loadSample);
 
 function renderAll() {
