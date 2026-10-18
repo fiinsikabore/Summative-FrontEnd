@@ -4,8 +4,7 @@ A calm, minimal reading tracking for keeping every book I read in one place. Bui
 
 **Live site (GitHub Pages):** https://fiinsikabore.github.io/Summative-FrontEnd/
 
-**Demo video (unlisted):** 
-ADD-LINK-HERE
+**Demo video (unlisted):** https://youtu.be/Cb9qf5jdhm0
 
 ---
 
