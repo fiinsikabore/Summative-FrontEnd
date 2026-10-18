@@ -27,7 +27,8 @@ h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; margin: 16px 0 
 h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 4px 0 0; }
 mark { background: var(--lime); color: #141414; border-radius: 3px; }
 .label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey); margin: 0 0 6px; }
-.status { color: var(--grey); font-size: 14px; min-height: 1.5em; }  and add the line: .err { color: var(--coral); font-size: 13px; margin: 4px 0 0; }
+.status { color: var(--grey); font-size: 14px; min-height: 1.5em; }
+.err { color: var(--coral); font-size: 13px; margin: 4px 0 0; }
 .err:empty { display: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .skip { position: absolute; left: 16px; top: -60px; background: var(--yellow); color: #141414; padding: 8px 14px; border-radius: 999px; }

@@ -13,7 +13,7 @@ export function validateField(name, value) {
     if(value === '') return 'This field is required.';
 
     if(name === 'title' || name === 'author') {
-    if(!PATTERNS.noEdgesSpaces.test(value)) return 'Remove the space at thestart or the end.';
+    if(!PATTERNS.noEdgesSpaces.test(value)) return 'Remove the space at the start or the end.';
         if(PATTERNS.doubleSpace.test(value)) return 'Use one space between words.';
         const repeated = value.match(PATTERNS.repeatedWord);
         if (repeated) return `"${repeated[1]}" is written twice.`;
