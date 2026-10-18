@@ -14,6 +14,7 @@ let books = load('vault:books', []);
 let goal = load('vault:goal', 6000);
 let sortKey = 'dateAdded';
 let query = '';
+let caseInsensitive = true;
 
 function save() {
     localStorage.setItem('vault:books', JSON.stringify(books));
@@ -44,6 +45,7 @@ function renderHome() {
   $('goal-text').innerHTML = left >= 0
     ? `<b>${fmt(left)} pages</b> left before your goal of ${fmt(goal)}`
     : `<b>${fmt(-left)} pages</b> over your goal of ${fmt(goal)}`;
+    $('goal-text').setAttribute('aria-live', left>= 0 ? 'polite' : 'assertive');
   $('goal-bar').style.width = Math.min(100, (pages / goal) * 100) + '%';
 
   const latest = [...books].sort((a, b) => b.dateAdded.localeCompare(a.dateAdded))[0];
@@ -72,12 +74,12 @@ function row(b, regex) {
         <td>${b.pages}</td>
         <td class="hide-sm">${highlight(b.tag, regex)}</td>
         <td class="hide-sm">${b.dateAdded}</td>
-        <td><button class="pill" data-delete="${b.id}" aria-label="Delete ${escapeHTML(b.title)}">Delete</button></td>
+        <td><button class="pill" data-edit="${b.id}">Edit</button> <button class="pill" data-delete=></button></td>
         </tr>`;
 }
 
 function renderLibrary() {
-    const regex = compileRegex(query);
+    const regex = compileRegex(query, caseInsensitive);
     const sorted = [...books].sort(sorter(sortKey));
     const shown = regex ? sorted.filter(b => regex.test(`${b.title} ${b.author} ${b.tag}`)) : sorted;
 
@@ -88,14 +90,38 @@ function renderLibrary() {
     ? shown.map(b => row(b, regex || null)).join('')
     : '<tr><td colspan="5" class="empty">No book matches.</td></tr>';
 }
-
+$('case-toggle').addEventListener('change', e => { caseInsensitive = e.target.checked; renderLibrary(); });
 $('search').addEventListener('input', e => { query = e.target.value; renderLibrary(); });
 
 document.querySelectorAll('[data-sort]').forEach(button => {
     button.addEventListener('click', () => { sortKey = button.dataset.sort; renderLibrary(); });
 });
 
+function editBook(id) {
+    const book = books.find(b => b.id === id);
+    const title = prompt('Title', book.title);
+    if (title === null) return;
+    const pages = promtp('Pages', book.pages);
+    if (pages === null) return;
+    const error { alert(error); return; }
+    book.title = title;
+    book.pages = Number(pages);
+    book.updateAt = new Date().toISOString();
+    save();
+    renderAll();
+}
+
 $('book-rows').addEventListener('click', e => {
+    if (e.target.dataset.edit) { editBook(e.target.dataset.edit); return; }
+    const id = e.target.dataset.delete;
+    if (!id) || !confirm('Delete this book?') return;
+    save();
+    renderAll();
+});
+
+$('book-rows').addEventListener('click', e => {
+    if (e.target.dataset.edit) {
+        editBook(e.target.dataset.edit); return;}
     const id = e.target.dataset.delete;
     if (!id || !confirm('Delete this book?')) return;
   books = books.filter(b => b.id !== id);
@@ -129,6 +155,7 @@ form.addEventListener('submit', e => {
         author: field('author').value,
         pages: Number(field('pages').value),
         tag: field('tag').value,
+        dateAdded: field('dateAdded').value,
         updatedAt: new Date().toISOString()
     });
     save();
@@ -182,7 +209,7 @@ async function loadSample() {
 }
 
 $('export').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify(books, null, 2)], { type: 'application/json '});
+    const blob = new Blob([JSON.stringify(books, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;

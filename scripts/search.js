@@ -1,7 +1,7 @@
-export function compileRegex(input) {
+export function compileRegex(input) { to export function compileRegex(input, ci = true) {
     if (input === '') return null;
     try {
-        return new RegExp(input, 'i');
+        return new RegExp(input, ci ? 'i' : '');
     } catch {
         return false;
     }
