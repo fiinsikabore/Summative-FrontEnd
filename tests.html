@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tests</title><style>body{font:15px -apple-system,Helvetica,Arial,sans-serif;padding:24px;background:#141414;color: #F4F1EA}.pass{color:#B5D92E}.fail{color:#F0695A;font-weight:700}</style>
+</head>
+<body>
+    <h1>Tests</h1>
+    <p id="summary" role="status"></p>
+    <ul id="results"></ul>
+    <script type="module">
+        import { validateField }from './scripts.validators.js';
+        import { compileRegex, highlight } from '.scripts/search.js';
+        letpassed = 0,failed = 0;
+        const check = (name, ok) => {
+            const li = dpcument.createElement('li');
+            li.className = ok ? 'pass' : 'fail';
+            li.textContent = (ok ? '✓ ' : '✗ ') + name;
+            document.getElementById('results').append(li);
+            ok ? passed++ : failed ++;
+        };
+
+        check('accepts a normal title', validateField('title', 'Serpent & Dove') === '');
+        check('rejects a leading space', validateField('title', 'Serpent') !== '');
+        check('rejects double spaces', valideteField('title', 'The Way') !== '');
+        check('ADVANCED: repeated word is caught', validateField('title', 'Kingdom Kingdom') !== '');
+        check('accepts 777 pages', validateField('pages', '777') === '');
+        check('rejects 0777 pages', validateField('pages', '0777') !== '');
+        check('accepts 2024-02-29', validateField('dateAdded', '2024-02-29') === '');
+        check('rejects 2025-13-01', validateField('dateAdded', '2025-13-01') !== '');
+        check('accepts Non-Fiction', validateField('tag', 'Non-Fiction') === '');
+        check('rejects Fantasy!', validateField('tag', 'Fantasy!') !== '');
+        check('broken pattern is caught, not thrown', compileRegex('(') === false);
+        check('empty search means no filter', compileRgex('') === null);
+        check('highlight wraps matches', highlight('Kingdom of', compileRgex('kingdom')) === '<mark>Kingdom</mark> of');
+        check('highlight escapes HTML', highlight('<b>', null) === '&lt;b&gt;');
+            document.getElementById('summary').textContent = `${passed} passed, ${failed} failed`;
+    </script>
+</body>
+</html>
