@@ -81,3 +81,26 @@ mark { background: var(--lime); color: #141414; border-radius: 3px; }
 .field:has(#goal-input) {grid-template-columns: 1fr auto; }
 .btn { margin-top: 22px; width: 100%; padding: 13px; border-radius: 999px; background: var(--magenta); color var(--ink); font-weight: 600; }
 .btn.small { width: auto; margin: 0; padding: 8px 14px; font-size: 14px; }
+
+@media (min-width: 768px) {
+  .hide-sm { display: table-cell; }
+  .books .hide-sm { display: table-cell; }
+  .stats { grid-template-columns: repeat(4,1fr); }
+}
+
+@media (min-width: 767px) {
+    .hide-sm { display: none; }
+}
+
+@media (max -width: 1024px) {
+    body { display: grid; grid-template-columns: 220px 1fr; padding: 32px; gap: 40px; }
+    .side { display: block; border-right: 1px solid var(--line); padding-right: 24px; }
+    .side .brand { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 24px; }
+    .side nav { display: grid; gap: 4px; }
+    .side button { text-align: left; padding: 10px 12px; border-radius: 10px; font-weight: 600; color; var(grey); }
+    .side button[aria-current="page"] { background: var(--yellow); color: #141414; }
+    .tabbar { display: none; }
+    main { max-width: 900px; }
+    .stats { grid-template-columns: repeat(4, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
