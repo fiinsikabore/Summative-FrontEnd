@@ -57,4 +57,27 @@ mark { background: var(--lime); color: #141414; border-radius: 3px; }
 .search { width: 100%; height: 44px; margin-top: 4px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: transparent; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; }
 .search:focus { outline: none; border-color: var(--magenta); }
 .chips { display: flex; gap: 6px; margin: 14px 0 8px; flex-wrap: wrap; }
-.chips button { flex; gap: 6px; margin: 14px 0 8px; flex-wrap}
+.chips button { font-size: 13px; font-weight: 600; padding: 6px 12px; borer: 1px solid var(--line); border-radius: 999px; color: var(--grey); }
+.chips button[aria-pressed="true"] { background: var(--magenta); border-color: var(--magenta); color: var(--ink); }
+.books { width: 100%; border-collapse: collapse; }
+.books th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(yellow); padding: 8px; border-bottom: 1px solid var(--magenta); }
+.books td { padding: 12px 8px; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+.books td small { display: block; color: var(--grey); }
+.books .empty { color: var(--grey); text-align: center; padding: 28px 8px; }
+.pill { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 600; }
+.pill:hover { border-color: var(--magenta); color: var(--magenta);
+}
+.button-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.button-row label.pill { cursor: pointer; }
+
+.field {display: grid; grid-template-columns: 90px 1fr; align-items:center; gap: 8px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.field label { color: var(--grey); }
+.field input { width: 100%; min-width: 0; background: none; border: 0; padding: 6px 0; font-size: 16px; }
+.field input:focus { outline: none; }
+.field input[aria-invalid="true"] { color: var(--coral); }
+.field:focus-within { border-color: var(--magenta); }
+.field .err { grid-column: 2; }
+#view-add .field { grid-template-columns: 90px 1fr; }
+.field:has(#goal-input) {grid-template-columns: 1fr auto; }
+.btn { margin-top: 22px; width: 100%; padding: 13px; border-radius: 999px; background: var(--magenta); color var(--ink); font-weight: 600; }
+.btn.small { width: auto; margin: 0; padding: 8px 14px; font-size: 14px; }
