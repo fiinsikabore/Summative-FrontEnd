@@ -11,7 +11,7 @@ export function escapeHTML(text) {
     return String(text).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
 
-export function Highlight(text, regex) {
+export function highlight(text, regex) {
     const str = String(text);
     if (!regex) return escapeHTML(str);
 
@@ -20,8 +20,8 @@ export function Highlight(text, regex) {
     let last = 0;
     for (const match of str.matchAll(global)) {
         if (match[0] === '') continue;
-        out += escapeHTML(str.slice(last, match.index)) + '<mark>' + escapeHTML(match[0]) + '</match>';
+        out += escapeHTML(str.slice(last, match.index)) + '<mark>' + escapeHTML(match[0]) + '</mark>';
         last = match.index + match[0].length;
     }
-    return out + escapteHTML(str.slice(last));
+    return out + escapeHTML(str.slice(last));
 }

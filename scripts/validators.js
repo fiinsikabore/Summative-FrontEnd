@@ -13,13 +13,13 @@ export function validateField(name, value) {
     if(value === '') return 'This field is required.';
 
     if(name === 'title' || name === 'author') {
-        if(!PATTERNS.noEdgesSpaces.test(value)) return 'Remove the space at thestart or the end.';
+    if(!PATTERNS.noEdgesSpaces.test(value)) return 'Remove the space at thestart or the end.';
         if(PATTERNS.doubleSpace.test(value)) return 'Use one space between words.';
-        const repeated = value.match(PATTERNS.repeateWord);
+        const repeated = value.match(PATTERNS.repeatedWord);
         if (repeated) return `"${repeated[1]}" is written twice.`;
     }
     if (name === 'pages' && !PATTERNS.pages.test(value)) return 'Enter a number like 777.';
     if (name === 'dateAdded'&& !PATTERNS.date.test(value)) return 'Use the format YYYY-MM-DD.';
-    if (name === 'tag' && !PATTERNS.tag.test(value)) return 'Use letters, spaces or hiphens only.';
+    if (name === 'tag' && !PATTERNS.tag.test(value)) return 'Use letters, spaces or hyphens only.';
     return '';
 }

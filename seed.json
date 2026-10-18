@@ -1,0 +1,102 @@
+[
+  {
+    "id": "book_001",
+    "title": "Saga Legacy - Ghost, Acte 1 : Genesis",
+    "author": "Azra Reed",
+    "pages": 558,
+    "tag": "Dark Romance",
+    "createdAt": "2025-09-10T08:00:00Z",
+    "updatedAt": "2025-09-10T08:00:00Z",
+    "dateAdded": "2025-09-10"
+  },
+  {
+    "id": "book_002",
+    "title": "From Blood and Ash",
+    "author": "Jennifer L. Armentrout",
+    "pages": 622,
+    "tag": "Fantasy Romance",
+    "createdAt": "2025-09-12T09:30:00Z",
+    "updatedAt": "2025-09-12T09:30:00Z",
+    "dateAdded": "2025-09-12"
+  },
+  {
+    "id": "book_003",
+    "title": "The Love Hypothesis",
+    "author": "Ali Hazelwood",
+    "pages": 384,
+    "tag": "Contemporary Romance",
+    "createdAt": "2025-09-15T14:15:00Z",
+    "updatedAt": "2025-09-15T14:15:00Z",
+    "dateAdded": "2025-09-15"
+  },
+  {
+    "id": "book_004",
+    "title": "Serpent & Dove",
+    "author": "Shelby Mahurin",
+    "pages": 528,
+    "tag": "Fantasy",
+    "createdAt": "2025-09-18T11:20:00Z",
+    "updatedAt": "2025-09-18T11:20:00Z",
+    "dateAdded": "2025-09-18"
+  },
+  {
+    "id": "book_005",
+    "title": "Kingdom of the Wicked",
+    "author": "Kerri Maniscalco",
+    "pages": 384,
+    "tag": "Gothic Fantasy",
+    "createdAt": "2025-09-20T16:00:00Z",
+    "updatedAt": "2025-09-20T16:00:00Z",
+    "dateAdded": "2025-09-20"
+  },
+  {
+    "id": "book_006",
+    "title": "Lakstone",
+    "author": "Sarah Rivens",
+    "pages": 540,
+    "tag": "Dark Romance",
+    "createdAt": "2025-09-21T10:00:00Z",
+    "updatedAt": "2025-09-21T10:00:00Z",
+    "dateAdded": "2025-09-21"
+  },
+  {
+    "id": "book_007",
+    "title": "Mariposa - Tome 1",
+    "author": "Azra Reed",
+    "pages": 456,
+    "tag": "Dark Romance",
+    "createdAt": "2025-09-22T12:00:00Z",
+    "updatedAt": "2025-09-22T12:00:00Z",
+    "dateAdded": "2025-09-22"
+  },
+  {
+    "id": "book_008",
+    "title": "Valentina - Tome 1",
+    "author": "Azra Reed",
+    "pages": 510,
+    "tag": "Dark Romance",
+    "createdAt": "2025-09-23T15:45:00Z",
+    "updatedAt": "2025-09-23T15:45:00Z",
+    "dateAdded": "2025-09-23"
+  },
+  {
+    "id": "book_009",
+    "title": "Le sang et la cendre",
+    "author": "Jennifer L. Armentrout",
+    "pages": 640,
+    "tag": "Romantasy",
+    "createdAt": "2025-09-24T18:10:00Z",
+    "updatedAt": "2025-09-24T18:10:00Z",
+    "dateAdded": "2025-09-24"
+  },
+  {
+    "id": "book_010",
+    "title": "Kingdom of the Wicked Wicked",
+    "author": "Kerri Maniscalco",
+    "pages": 400,
+    "tag": "Gothic Fantasy",
+    "createdAt": "2025-09-25T09:00:00Z",
+    "updatedAt": "2025-09-25T09:00:00Z",
+    "dateAdded": "2025-09-25"
+  }
+]

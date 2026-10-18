@@ -7,11 +7,11 @@
     <p id="summary" role="status"></p>
     <ul id="results"></ul>
     <script type="module">
-        import { validateField }from './scripts.validators.js';
-        import { compileRegex, highlight } from '.scripts/search.js';
-        letpassed = 0,failed = 0;
+        import { validateField } from './scripts/validators.js';
+        import { compileRegex, highlight } from './scripts/search.js';
+        let passed = 0, failed = 0;
         const check = (name, ok) => {
-            const li = dpcument.createElement('li');
+            const li = document.createElement('li');
             li.className = ok ? 'pass' : 'fail';
             li.textContent = (ok ? '✓ ' : '✗ ') + name;
             document.getElementById('results').append(li);
@@ -19,8 +19,8 @@
         };
 
         check('accepts a normal title', validateField('title', 'Serpent & Dove') === '');
-        check('rejects a leading space', validateField('title', 'Serpent') !== '');
-        check('rejects double spaces', valideteField('title', 'The Way') !== '');
+        check('rejects a leading space', validateField('title', ' Serpent') !== '');
+        check('rejects double spaces', validateField('title', 'The  Way') !== '');
         check('ADVANCED: repeated word is caught', validateField('title', 'Kingdom Kingdom') !== '');
         check('accepts 777 pages', validateField('pages', '777') === '');
         check('rejects 0777 pages', validateField('pages', '0777') !== '');
@@ -29,8 +29,8 @@
         check('accepts Non-Fiction', validateField('tag', 'Non-Fiction') === '');
         check('rejects Fantasy!', validateField('tag', 'Fantasy!') !== '');
         check('broken pattern is caught, not thrown', compileRegex('(') === false);
-        check('empty search means no filter', compileRgex('') === null);
-        check('highlight wraps matches', highlight('Kingdom of', compileRgex('kingdom')) === '<mark>Kingdom</mark> of');
+        check('empty search means no filter', compileRegex('') === null);
+        check('highlight wraps matches', highlight('Kingdom of', compileRegex('kingdom')) === '<mark>Kingdom</mark> of');
         check('highlight escapes HTML', highlight('<b>', null) === '&lt;b&gt;');
             document.getElementById('summary').textContent = `${passed} passed, ${failed} failed`;
     </script>
