@@ -86,7 +86,7 @@ function renderLibrary() {
     : `${shown.length} of ${books.length} books`;
   $('book-rows').innerHTML = shown.length
     ? shown.map(b => row(b, regex || null)).join('')
-    : '<tr><td colspan="5" class="empty">No book matches.</td></tr>';   (one line)
+    : '<tr><td colspan="5" class="empty">No book matches.</td></tr>';
 }
 
 $('search').addEventListener('input', e => { query = e.target.value; renderLibrary(); });
