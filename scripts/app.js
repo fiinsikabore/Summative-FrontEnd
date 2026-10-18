@@ -74,7 +74,7 @@ function row(b, regex) {
         <td>${b.pages}</td>
         <td class="hide-sm">${highlight(b.tag, regex)}</td>
         <td class="hide-sm">${b.dateAdded}</td>
-        <td><button class="pill" data-edit="${b.id}">Edit</button> <button class="pill" data-delete=></button></td>
+        <td><button class="pill" data-edit="${b.id}">Edit</button> <button class="pill" data-delete="${b.id}" aria-label="Delete ${escapeHTML(b.title)}">Delete</button></td>
         </tr>`;
 }
 
@@ -101,12 +101,13 @@ function editBook(id) {
     const book = books.find(b => b.id === id);
     const title = prompt('Title', book.title);
     if (title === null) return;
-    const pages = promtp('Pages', book.pages);
+    const pages = prompt('Pages', book.pages);
     if (pages === null) return;
-    const error { alert(error); return; }
+    const error = validateField('title', title) || validateField('pages', pages);
+    if (error) { alert(error); return; }
     book.title = title;
     book.pages = Number(pages);
-    book.updateAt = new Date().toISOString();
+    book.updatedAt = new Date().toISOString();
     save();
     renderAll();
 }
@@ -114,19 +115,10 @@ function editBook(id) {
 $('book-rows').addEventListener('click', e => {
     if (e.target.dataset.edit) { editBook(e.target.dataset.edit); return; }
     const id = e.target.dataset.delete;
-    if (!id) || !confirm('Delete this book?') return;
+    if (!id || !confirm('Delete this book?')) return;
+    books = books.filter(b => b.id !== id);
     save();
     renderAll();
-});
-
-$('book-rows').addEventListener('click', e => {
-    if (e.target.dataset.edit) {
-        editBook(e.target.dataset.edit); return;}
-    const id = e.target.dataset.delete;
-    if (!id || !confirm('Delete this book?')) return;
-  books = books.filter(b => b.id !== id);
-  save();
-  renderAll();
 });
 
 

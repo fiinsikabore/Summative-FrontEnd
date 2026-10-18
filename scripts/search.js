@@ -1,4 +1,4 @@
-export function compileRegex(input) { to export function compileRegex(input, ci = true) {
+export function compileRegex(input, ci = true) {
     if (input === '') return null;
     try {
         return new RegExp(input, ci ? 'i' : '');
