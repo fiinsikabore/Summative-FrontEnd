@@ -1,6 +1,6 @@
 # Book Vault
 
-A calm, minimal reading tracker for keeping every book I read in one place. Built with vanilla HTML, CSS and JavaScript for the **Building Responsive UI** summative (Frontend Web Development, ALU).
+A calm, minimal reading tracking for keeping every book I read in one place. Built with vanilla HTML, CSS and JavaScript for the **Building Responsive UI** summative (Frontend Web Development, ALU).
 
 **Live site (GitHub Pages):** https://fiinsikabore.github.io/Summative-Assignment---Building-Responsive-UI/
 **Demo video (unlisted):** ADD-LINK-HERE
@@ -78,7 +78,7 @@ Open `tests.html` with the local server. It prints a green or red line for each 
 
 ## Responsive design
 
-Mobile first. A bottom tab bar on phones, a sidebar at 1024px and wider. The library is a table; on small screens the Tag and Added columns are hidden so it fits.
+Mobile first. A bottom tab bar on phones, a sidebar at 1024px and wider. The library is a table; on a small screens the Tag and Added columns are hidden so it fits.
 
 ## Contact
 
